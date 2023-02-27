@@ -40,8 +40,8 @@ import Bitcoin from './components/Bitcoin';
 	
 function App() {
   return (
-    //<Articulo />
-    <Bitcoin />
+    <Articulo />
+    //<Bitcoin />
   );
     
 }
