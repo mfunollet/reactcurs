@@ -1,49 +1,54 @@
 import './App.css';
-import Articulo from './components/Articulo';
-import Bitcoin from './components/Bitcoin';
-
-
-// import React, { Component } from 'react';
- 
-// class ComponenteClase extends Component {
-  
-//   //Aquí podría haber un constructor de la clase
-//   render(){
-//    return (<h3> Componente de Clase </h3>);
-//   }
-// }
- 
-// export default ComponenteClase ;
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
-
+//import React, { Component } from 'react';
+//import ManejoPulsacion from './components/ManejoPulsacion';
+//import Articulo from './components/Articulo';
+//import Bitcoin from './components/Bitcoin';
+//import FormularioTest from './components/FormularioTest';
+//import Teclado from './components/Teclado';
+//import Raton from './components/Raton';
+//import Imagenes from './components/Imagenes';
+import ComponenteEventos from './components/ComponenteEventos';
+import MouseColor from './components/MouseColor';
 	
 function App() {
+  	
   return (
-    <Articulo />
+    //<Articulo />
     //<Bitcoin />
+    //<ManejoPulsacion />
+    //<FormularioTest/>
+    //<Teclado/>
+    //<Raton/>
+    //<Imagenes/>
+    <div>
+      <ComponenteEventos/>
+      <MouseColor/>
+    </div>
   );
     
 }
-  
 export default App;
+	
+//export default App;
+// function App() {
+//   const [nombre, setNombre] = useState('');
+//   const [appelidos, setApellidos] = useState('');
+//   const [resultado, setResultado] = useState('');
+  
+//     const manejarPulsacion = (event) => {
+//       setResultado(`${nombre} ${apellidos}`);
+//     }
+  
+//     return (
+//       <div className="App">
+//         <header className="App-header">
+//           <h1>Formulario en React</h1>
+          
+//           // ...
+//           <button onClick={manejarPulsacion}>Mostrar datos</button>
+          
+//           <strong>{resultado}</strong>
+//         </header>
+//       </div>
+//     );
+// }
