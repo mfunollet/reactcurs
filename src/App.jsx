@@ -1,54 +1,32 @@
+import logo from './logo.svg';
 import './App.css';
-//import React, { Component } from 'react';
-//import ManejoPulsacion from './components/ManejoPulsacion';
-//import Articulo from './components/Articulo';
-//import Bitcoin from './components/Bitcoin';
-//import FormularioTest from './components/FormularioTest';
-//import Teclado from './components/Teclado';
-//import Raton from './components/Raton';
-//import Imagenes from './components/Imagenes';
-import ComponenteEventos from './components/ComponenteEventos';
-import MouseColor from './components/MouseColor';
-	
-function App() {
-  	
+
+import Mensajes from './views/Mensajes.view'
+//import Formulario from './components/Formulario'
+// export default function App() {
+//   return (
+//     <div className="App">
+//        {/* <header className="App-header">
+//          <img src={logo} className="App-logo" alt="logo" />
+//          <h1>ReactJS | Imagina Formación</h1>
+//        </header> */}
+//         <div className="App-body">
+//           <Formulario/>
+//        </div>     
+//      </div>
+//   );
+// }
+export default function App() {
   return (
-    //<Articulo />
-    //<Bitcoin />
-    //<ManejoPulsacion />
-    //<FormularioTest/>
-    //<Teclado/>
-    //<Raton/>
-    //<Imagenes/>
-    <div>
-      <ComponenteEventos/>
-      <MouseColor/>
+    <div className="App">
+      {/* <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1>ReactJS | Imagina Formación</h1>
+      </header> */}
+
+      <div className="App-body">
+        <Mensajes/>
+      </div>     
     </div>
   );
-    
 }
-export default App;
-	
-//export default App;
-// function App() {
-//   const [nombre, setNombre] = useState('');
-//   const [appelidos, setApellidos] = useState('');
-//   const [resultado, setResultado] = useState('');
-  
-//     const manejarPulsacion = (event) => {
-//       setResultado(`${nombre} ${apellidos}`);
-//     }
-  
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <h1>Formulario en React</h1>
-          
-//           // ...
-//           <button onClick={manejarPulsacion}>Mostrar datos</button>
-          
-//           <strong>{resultado}</strong>
-//         </header>
-//       </div>
-//     );
-// }
