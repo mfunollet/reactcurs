@@ -3,6 +3,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 export default function MensajesHeader(props) {
+  
   const validaciones = Yup.object().shape({
     asunto: Yup.string()
       .required('Por favor, escribe un asunto.')
@@ -33,8 +34,8 @@ export default function MensajesHeader(props) {
                 name="mensaje" onChange={handleChange} value={values.mensaje} />
            {errors.mensaje ? (<div>{errors.mensaje}</div>) : null}
 
-
-          <button className="Nuevo" type="submit" disabled={isSubmitting}>Nuevo</button>
+           <button className="Nuevo" type="submit">Nuevo</button>
+          {/* <button className="Nuevo" type="submit" disabled={isSubmitting}>Nuevo</button> */}
         </form>
         )}
       </Formik>

@@ -1,7 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
-
 import Mensajes from './views/Mensajes.view'
+
+
 //import Formulario from './components/Formulario'
 // export default function App() {
 //   return (

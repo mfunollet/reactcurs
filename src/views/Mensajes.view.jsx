@@ -1,49 +1,57 @@
 import MensajesHeader from '../components/MensajesHeader/MensajesHeader.component';
 import MensajesTable from '../components/MensajesTable/MensajesTable.component';
 import './Mensajes.view.css';
-
-import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+	
+import {
+  borrarMensaje, crearMensaje, leerMensaje, vaciarMensajes, loginLogout
+} from '../redux/actions';
+//import { useState } from 'react';
 
 
 export default function Mensajes() {
-  const [mensajes, setMensajes] = useState([]);
-    
-    let nuevoMensaje = (event, { setSubmitting }) => {
-      console.log(event);
-      const asunto = event.asunto;
-      const email = event.email;
-      const mensaje = event.mensaje;
+    const mensajes = useSelector(state => state.mensajes);
+    const dispatch = useDispatch();
+    const islogin = useSelector(state => state.login);
+  
+    let crear = ({asunto, email, mensaje}) => {
       let nuevo = {
         "asunto": asunto,
         "email": email,
         "mensaje": mensaje,
         "leido": false
       };
-      setSubmitting(false);
-      setMensajes(mensajes => [...mensajes, nuevo]);
-    };
-    
-    let eliminarMensajes = () => {
-      setMensajes([]);
-    };
-    
-    let eliminarMensaje = (index) => {
-      mensajes.splice(index, 1);
-      setMensajes([...mensajes]);
-    };
-    	
-    let leerMensaje = (index) => {
-      mensajes[index].leido = !mensajes[index].leido;
-      setMensajes([...mensajes]);
-    }
   
-    return (
-      <div className='Mensajes'>
-        <MensajesHeader clickNuevo={nuevoMensaje} clickEliminar={eliminarMensajes}>
-        </MensajesHeader>
+      dispatch(crearMensaje(nuevo));
+    }
+    let vaciar = () => { dispatch(vaciarMensajes()); }
+    let eliminar = (index) => { dispatch(borrarMensaje(index)); }
+    let leer = (index) => { dispatch(leerMensaje(index)) }
+    let logear = () => { dispatch(loginLogout()); }
+    
+    if (!islogin) {
+      return (
+        <div className="Mensajes">
+          <div className="Login">
+            <button onClick={logear} className="Vaciar">{islogin ? 'Desconectar' : 'Conectar'}</button>
+          </div>
+        </div>
+      );
+    }else{
+      return (
+        <div className="Mensajes">
+          <div className="Login">
+            <button onClick={logear} className="Vaciar">{islogin ? 'Desconectar' : 'Conectar'}</button>
+          </div>
+            <MensajesHeader clickNuevo={crear} clickEliminar={vaciar}>
+            </MensajesHeader>
+  
+            <MensajesTable mensajes={mensajes}
+            clickEliminarUno={eliminar} clickMarcarLeido={leer}>
+            </MensajesTable>
+        </div>
         
-        <MensajesTable mensajes={mensajes} clickEliminarUno={eliminarMensaje}
-        clickMarcarLeido={leerMensaje}></MensajesTable>
-      </div>
-    );
+      );
+    }
   }
+  

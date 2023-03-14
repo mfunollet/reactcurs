@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-//import ComponenteClase from './components/ComponenteClase';
-//import Test from './components/test'
+import { Provider } from 'react-redux';
+import store from './redux'
 
 
 // var lock = true;
@@ -27,9 +27,14 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  
-  <App />
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
 );
+// root.render(
+//   <App />
+// );
 
 // setInterval(inmutable, 1000);
 
